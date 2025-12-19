@@ -544,3 +544,45 @@ body {
     backdrop-filter: none;
   }
 }
+
+/* =========================
+   FIX DEFINITIVO MOBILE
+   ========================= */
+@media (max-width: 768px){
+
+  /* Apagar pseudo fondo */
+  .reserva-header::before{
+    display: none;
+  }
+
+  /* Fondo directo y estable */
+  .overlay{
+    background:
+      linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.65)
+      ),
+      url("../img/FtQuincho1.jpg") center / cover no-repeat;
+    
+    min-height: auto;
+    padding-bottom: 100px;
+  }
+
+  /* Header libre */
+  .reserva-header{
+    min-height: auto;
+  }
+
+  /* Quitar blur pesado */
+  .calendar,
+  .horario-box,
+  .cliente-box,
+  .resumen-box{
+    backdrop-filter: none !important;
+  }
+
+  /* Evitar scroll horizontal */
+  html, body{
+    overflow-x: hidden;
+  }
+}
