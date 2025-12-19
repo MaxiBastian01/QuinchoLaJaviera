@@ -1,3 +1,13 @@
+/* RESET CLAVE */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
 html,
 body {
     height: 100%;
@@ -511,78 +521,58 @@ body {
 }
 
 /* =========================
-   FIXES MOBILE
+   MOBILE BASE FIX 
    ========================= */
 @media (max-width: 768px){
 
-  .reserva-header{
-    min-height: auto;
-  }
-
+  /* Apagar pseudo fondo borroso */
   .reserva-header::before{
-    position: fixed;
-    height: 100vh;
+    display: none !important;
   }
 
-  .overlay{
-    min-height: auto;
-    padding-bottom: 80px;
-  }
-
-  *{
-    max-width: 100%;
-  }
-
-  body{
+  /* Header sin alturas rígidas */
+  .reserva-header{
+    min-height: auto !important;
+    height: auto !important;
+    background: none !important;
     overflow-x: hidden;
   }
 
-  .calendar,
-  .horario-box,
-  .cliente-box,
-  .resumen-box{
-    backdrop-filter: none;
-  }
-}
-
-/* =========================
-   FIX DEFINITIVO MOBILE
-   ========================= */
-@media (max-width: 768px){
-
-  /* Apagar pseudo fondo */
-  .reserva-header::before{
-    display: none;
-  }
-
-  /* Fondo directo y estable */
+  /* Fondo estable en overlay */
   .overlay{
     background:
-      linear-gradient(
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.65)
-      ),
-      url("../img/FtQuincho1.jpg") center / cover no-repeat;
-    
+      linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+      url("../img/FtQuincho1.jpg") center / cover no-repeat !important;
+
+    width: 100%;
     min-height: auto;
-    padding-bottom: 100px;
+    padding: 28px 16px 90px !important;
+    gap: 14px;
   }
 
-  /* Header libre */
-  .reserva-header{
-    min-height: auto;
-  }
-
-  /* Quitar blur pesado */
+  /* Cards centradas y sin blur pesado */
   .calendar,
   .horario-box,
   .cliente-box,
   .resumen-box{
+    width: 100%;
+    max-width: 100%;
     backdrop-filter: none !important;
   }
 
-  /* Evitar scroll horizontal */
-  html, body{
-    overflow-x: hidden;
+  /* Pasos compactos */
+  .pasos{
+    gap: 10px;
+  }
+
+  .paso{
+    width: 100%;
+    max-width: 320px;
+    padding: 18px 16px;
+  }
+
+  .flecha{
+    font-size: 2rem;
+    margin: 4px 0;
   }
 }
