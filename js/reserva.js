@@ -76,7 +76,7 @@ let occupiedSet = new Set();
             cell.className = "cal-cell day";
             cell.textContent = day;
 
-            // 🔴 BLOQUEAR FECHAS OCUPADAS
+            //  BLOQUEAR FECHAS OCUPADAS
             if (occupiedSet.has(key)) {
                 cell.classList.add("disabled");
                 cell.disabled = true;
