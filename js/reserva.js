@@ -1,13 +1,19 @@
 
+import { fetchOccupiedDatesSet } from "./API.js";
+
+let occupiedSet = new Set();
+
 (() => {
+
+
+
     const nombreCliente = document.getElementById("nombreCliente");
     const grid = document.getElementById("calGrid");
     const monthLabel = document.getElementById("monthLabel");
     const fechaOut = document.getElementById("fechaSeleccionada");
-
-
     const prevBtn = document.getElementById("prevMonth");
     const nextBtn = document.getElementById("nextMonth");
+
 
     const meses = [
         "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -37,6 +43,10 @@
         return d === 0 ? 7 : d;
     }
 
+    (async () => {
+        occupiedSet = await fetchOccupiedDatesSet();
+        render();
+    })();
     function render() {
         grid.innerHTML = "";
 
@@ -47,9 +57,7 @@
 
         const first = new Date(year, month, 1);
         const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        // cuántos "vacíos" antes del día 1 (si arranca lunes)
-        const startOffset = dowMondayFirst(first) - 1; // 0..6
+        const startOffset = (first.getDay() === 0 ? 7 : first.getDay()) - 1;
 
         // Vacíos
         for (let i = 0; i < startOffset; i++) {
@@ -61,29 +69,37 @@
         // Días
         for (let day = 1; day <= daysInMonth; day++) {
             const d = new Date(year, month, day);
-            const key = keyFromDate(d);
+            const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
             const cell = document.createElement("button");
             cell.type = "button";
             cell.className = "cal-cell day";
             cell.textContent = day;
 
+            // 🔴 BLOQUEAR FECHAS OCUPADAS
+            if (occupiedSet.has(key)) {
+                cell.classList.add("disabled");
+                cell.disabled = true;
+                cell.title = "Fecha ocupada";
+            }
+
             if (key === selectedKey) cell.classList.add("selected");
 
             cell.addEventListener("click", () => {
+                if (cell.disabled) return;
+
                 selectedKey = key;
+                grid.querySelectorAll(".cal-cell.day.selected")
+                    .forEach(el => el.classList.remove("selected"));
 
-                // marcar seleccionado
-                grid.querySelectorAll(".cal-cell.day.selected").forEach(el => el.classList.remove("selected"));
                 cell.classList.add("selected");
-
-                // auto-rellenar abajo
-                fechaOut.textContent = formatAR(d);
+                fechaOut.textContent = `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
             });
 
             grid.appendChild(cell);
         }
     }
+
 
     prevBtn.addEventListener("click", () => {
         view.setMonth(view.getMonth() - 1);
@@ -162,6 +178,13 @@ function actualizarBotonWhatsapp() {
 btnWhatsapp.addEventListener("click", () => {
     const fecha = fechaSeleccionada2.textContent;
     const horario = horarioSeleccionado.textContent;
+    const consultaInput = document.getElementById("consultaTexto");
+
+    // 🔹 Tomar consulta (opcional)
+    let consulta = consultaInput.value.trim();
+    if (!consulta) {
+        consulta = "Ninguna.";
+    }
 
     const mensaje =
         `Hola 
@@ -171,12 +194,14 @@ Quiero reservar el quincho con estos datos:
 
  Fecha: ${fecha}
  Horario: ${horario}
+ Consultas: ${consulta}
 
 ¡Gracias!`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
 });
+
 
 // Revisamos cambios
 setInterval(actualizarBotonWhatsapp, 300);
@@ -186,5 +211,5 @@ setInterval(actualizarBotonWhatsapp, 300);
 const btnVolver = document.getElementById("btnVolver");
 
 btnVolver.addEventListener("click", () => {
-  window.location.href = "index.html"; // o la página que quieras
+    window.location.href = "index.html"; // o la página que quieras
 });
