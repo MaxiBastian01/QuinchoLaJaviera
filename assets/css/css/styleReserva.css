@@ -1,4 +1,4 @@
-/* RESET CLAVE */
+/* RESET GLOBAL */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -521,16 +521,14 @@ body {
 }
 
 /* =========================
-   MOBILE BASE FIX 
+   MOBILE BASE FIX
    ========================= */
 @media (max-width: 768px){
 
-  /* Apagar pseudo fondo borroso */
   .reserva-header::before{
     display: none !important;
   }
 
-  /* Header sin alturas rígidas */
   .reserva-header{
     min-height: auto !important;
     height: auto !important;
@@ -538,7 +536,6 @@ body {
     overflow-x: hidden;
   }
 
-  /* Fondo estable en overlay */
   .overlay{
     background:
       linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
@@ -548,9 +545,9 @@ body {
     min-height: auto;
     padding: 28px 16px 90px !important;
     gap: 14px;
+    overflow-x: hidden;
   }
 
-  /* Cards centradas y sin blur pesado */
   .calendar,
   .horario-box,
   .cliente-box,
@@ -560,7 +557,6 @@ body {
     backdrop-filter: none !important;
   }
 
-  /* Pasos compactos */
   .pasos{
     gap: 10px;
   }
@@ -574,5 +570,36 @@ body {
   .flecha{
     font-size: 2rem;
     margin: 4px 0;
+  }
+}
+
+/* =========================
+   AJUSTE FINO MOBILE (centrado real)
+   ========================= */
+@media (max-width: 768px){
+
+  .reserva-cal{
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .calendar,
+  .cliente-box,
+  .horario-box,
+  .resumen-box{
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .calendar{
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .overlay{
+    overflow-x: hidden !important;
   }
 }
