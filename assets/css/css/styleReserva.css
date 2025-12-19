@@ -509,3 +509,38 @@ body {
   background: rgba(255,255,255,0.15);
   transform: translateX(-2px);
 }
+
+/* =========================
+   FIXES MOBILE
+   ========================= */
+@media (max-width: 768px){
+
+  .reserva-header{
+    min-height: auto;
+  }
+
+  .reserva-header::before{
+    position: fixed;
+    height: 100vh;
+  }
+
+  .overlay{
+    min-height: auto;
+    padding-bottom: 80px;
+  }
+
+  *{
+    max-width: 100%;
+  }
+
+  body{
+    overflow-x: hidden;
+  }
+
+  .calendar,
+  .horario-box,
+  .cliente-box,
+  .resumen-box{
+    backdrop-filter: none;
+  }
+}
