@@ -45,6 +45,8 @@ let occupiedSet = new Set();
 
     (async () => {
         occupiedSet = await fetchOccupiedDatesSet();
+        console.log("OCUPADAS:", [...occupiedSet]);
+
         render();
     })();
     function render() {
