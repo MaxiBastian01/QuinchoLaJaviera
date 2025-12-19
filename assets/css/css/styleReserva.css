@@ -655,3 +655,10 @@ body {
         overflow-x: hidden !important;
     }
 }
+
+.cal-cell.day.disabled{
+  background: rgba(220, 60, 60, 0.85) !important;
+  border-color: rgba(220, 60, 60, 0.9) !important;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
