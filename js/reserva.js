@@ -1,13 +1,13 @@
 
 import { fetchOccupiedDatesSet } from "./api.js";
-
+const nombreCliente = document.getElementById("nombreCliente");
 let occupiedSet = new Set();
 
 (() => {
 
 
 
-    const nombreCliente = document.getElementById("nombreCliente");
+    
     const grid = document.getElementById("calGrid");
     const monthLabel = document.getElementById("monthLabel");
     const fechaOut = document.getElementById("fechaSeleccionada");
