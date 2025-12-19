@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema de Reservas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/css/styleReserva.css" />
+</head>
+
+<body>
+    <!-- -->
+    <header class="reserva-header">
+        <div class="overlay">
+            <h1>Sistema de Reservas</h1>
+            <p class="subtitulo">
+                Reservá tu fecha ideal de forma rápida y segura
+            </p>
+
+            <div class="pasos">
+                <div class="paso">
+                    <span class="num">1</span>
+                    <p>Seleccioná la fecha</p>
+                </div>
+
+                <span class="flecha">→</span>
+
+                <div class="paso">
+                    <span class="num">2</span>
+                    <p>Indicá horario</p>
+                </div>
+
+                <span class="flecha">→</span>
+
+                <div class="paso">
+                    <span class="num">3</span>
+                    <p>Confirmá por WhatsApp</p>
+                </div>
+            </div>
+
+
+
+
+            <section class="reserva-cal compact">
+
+                <!-- PASO 0: DATOS DEL CLIENTE -->
+                <section class="cliente-box">
+                    <h2 class="cliente-title">Nombre y apellido</h2>
+
+                    <div class="cliente-grid">
+                        <input type="text" id="nombreCliente" class="cliente-input" placeholder="Ej: Juan Pérez"
+                            autocomplete="name">
+                    </div>
+                </section>
+                <!-- PASO 1: Calendario -->
+                <h2 class="cal-title">Seleccioná una fecha</h2>
+
+                <div class="calendar">
+                    <div class="cal-head">
+                        <button class="cal-btn" id="prevMonth" aria-label="Mes anterior">‹</button>
+                        <div class="cal-month" id="monthLabel">Mes 2025</div>
+                        <button class="cal-btn" id="nextMonth" aria-label="Mes siguiente">›</button>
+                    </div>
+
+                    <div class="cal-weekdays">
+                        <div>Lu</div>
+                        <div>Ma</div>
+                        <div>Mi</div>
+                        <div>Ju</div>
+                        <div>Vi</div>
+                        <div>Sá</div>
+                        <div>Do</div>
+                    </div>
+
+                    <div class="cal-grid" id="calGrid"></div>
+                </div>
+
+                <div class="fecha-box" id="fechaBox">
+                    <span class="fecha-label">Fecha seleccionada:</span>
+                    <span class="fecha-value" id="fechaSeleccionada">—</span>
+                </div>
+
+                <!-- PASO 2: HORARIO -->
+                <section class="horario-box">
+                    <h2 class="horario-title">2) Indicá horario</h2>
+
+                    <div class="horario-grid">
+                        <label class="horario-field">
+                            <span class="horario-label">Desde:</span>
+                            <input type="time" id="horaDesde" class="horario-input">
+                        </label>
+
+                        <label class="horario-field">
+                            <span class="horario-label">Hasta:</span>
+                            <input type="time" id="horaHasta" class="horario-input">
+                        </label>
+                    </div>
+                </section>
+
+                <!-- RESUMEN -->
+                <div class="resumen-box">
+                    <div class="resumen-row">
+                        <span class="resumen-label">Fecha seleccionada:</span>
+                        <span class="resumen-value" id="fechaSeleccionada2">—</span>
+                    </div>
+
+                    <div class="resumen-row">
+                        <span class="resumen-label">Horario seleccionado:</span>
+                        <span class="resumen-value" id="horarioSeleccionado">—</span>
+                    </div>
+                </div>
+
+            </section>
+            <!-- PASO 3 - WHATSAPP -->
+            <div class="whatsapp-box">
+                <button class="whatsapp-btn" id="btnWhatsapp" disabled>
+                    Confirmá por WhatsApp
+                </button>
+            </div>
+
+            <!-- BOTÓN VOLVER -->
+            <div class="volver-box">
+                <button class="volver-btn" id="btnVolver">
+                    ← Volver
+                </button>
+            </div>
+
+        </div>
+
+
+
+
+
+    </header>
+
+    <script src="js/reserva.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,511 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.reserva-header {
+    min-height: 100vh;
+    position: relative;
+    background: url("../img/FtQuincho1.jpg") center/cover no-repeat;
+}
+
+/* Fondo borroso */
+.reserva-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../img/FtQuincho1.jpg") center/cover no-repeat;
+    filter: blur(8px);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+/* Overlay */
+.overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    color: #fff;
+
+    padding: 40px 20px 60px;
+    gap: 18px;
+}
+
+/* Título */
+.reserva-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-size: 1.2rem;
+    max-width: 600px;
+    opacity: 0.9;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   PASOS
+   ========================= */
+.pasos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.paso {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    padding: 25px 20px;
+    border-radius: 16px;
+    width: 180px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.paso:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background: #25d366;
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.paso p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.flecha {
+    font-size: 3rem;
+    color: #25d366;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+/* Responsive pasos */
+@media (max-width: 768px) {
+    .reserva-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitulo {
+        font-size: 1rem;
+    }
+
+    .pasos {
+        flex-direction: column;
+    }
+
+    .flecha {
+        transform: rotate(90deg);
+        margin: 5px 0;
+        font-size: 2.5rem;
+    }
+
+    .paso {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+/* =========================
+   PASO 0 - CLIENTE
+   ========================= */
+.cliente-box{
+  margin: 0 auto 22px;
+  width: 100%;
+  max-width: 620px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  backdrop-filter: blur(14px);
+  padding: 16px 18px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.cliente-title{
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  text-align: left;
+}
+
+.cliente-grid{
+  display: grid;
+}
+
+.cliente-input{
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.22);
+  color: #fff;
+  outline: none;
+  font-weight: 800;
+  font-size: 15px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.cliente-input::placeholder{
+  color: rgba(255,255,255,0.6);
+}
+
+.cliente-input:focus{
+  border-color: rgba(10,165,58,0.85);
+  box-shadow: 0 0 0 3px rgba(10,165,58,0.25);
+}
+
+/* =========================
+   PASO 1 CALENDARIO
+   ========================= */
+.reserva-cal {
+    width: min(880px, 94vw);
+    margin: 0 auto;
+    
+}
+
+.reserva-cal .calendar {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    backdrop-filter: blur(14px);
+    padding: 22px 26px;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4);
+}
+
+/* Header calendario */
+.reserva-cal .cal-head {
+    display: grid;
+    grid-template-columns: 46px 1fr 46px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.reserva-cal .cal-month {
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    color: #fff;
+    text-align: center;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Botones */
+.reserva-cal .cal-btn {
+    height: 44px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.22);
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    transition: background .15s ease, transform .15s ease;
+}
+
+.reserva-cal .cal-btn:hover {
+    background: rgba(0, 0, 0, 0.32);
+    transform: translateY(-1px);
+}
+
+/* Días semana */
+.reserva-cal .cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    padding: 6px 2px 12px;
+    font-weight: 800;
+    font-size: 14.5px;
+    color: #f1f1f1;
+    text-transform: uppercase;
+}
+
+/* Grilla */
+.reserva-cal .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.reserva-cal .cal-cell {
+    height: 48px;
+    display: grid;
+    place-items: center;
+    user-select: none;
+}
+
+.reserva-cal .cal-cell.empty {
+    background: transparent;
+    border: none;
+}
+
+.reserva-cal .cal-cell.day {
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.10);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 6px;
+}
+
+.reserva-cal .cal-cell.day:hover {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+.reserva-cal .cal-cell.day.selected {
+    background: rgba(10, 165, 58, 0.95);
+    border-color: rgba(10, 165, 58, 0.8);
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+/* Fecha seleccionada */
+.reserva-cal .fecha-box {
+
+    margin: 18px auto 0;
+    width: 100%;
+    max-width: 620px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.30);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+
+    display: none;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.reserva-cal .fecha-value {
+    color: #7CFFAA;
+}
+
+/* Responsive calendario */
+@media (max-width: 520px) {
+    .reserva-cal {
+        width: 96vw;
+    }
+
+    .reserva-cal .calendar {
+        padding: 18px;
+    }
+
+    .reserva-cal .cal-cell {
+        height: 44px;
+    }
+}
+
+/* =========================
+   PASO 2 - HORARIO
+   ========================= */
+.horario-box {
+    margin: 24px auto 0;
+    /* ✅ centrado */
+    width: 100%;
+    max-width: 620px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    backdrop-filter: blur(14px);
+    padding: 16px 18px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.horario-title {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+    text-align: left;
+    
+}
+
+.horario-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.horario-field {
+    display: grid;
+    gap: 6px;
+    text-align: left;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.horario-label {
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.horario-input {
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.22);
+    color: #fff;
+    outline: none;
+    font-weight: 800;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.horario-input:focus {
+    border-color: rgba(10, 165, 58, 0.85);
+    box-shadow: 0 0 0 3px rgba(10, 165, 58, 0.25);
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* =========================
+   RESUMEN
+   ========================= */
+.resumen-box {
+    margin: 14px auto 30px;
+    /* ✅ centrado + aire abajo */
+    width: 100%;
+    max-width: 620px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.30);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+
+    display: grid;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.resumen-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+.resumen-value {
+    color: #7CFFAA;
+}
+
+/* Responsive horario/resumen */
+@media (max-width: 520px) {
+    .horario-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   PASO 3 - WHATSAPP
+   ========================= */
+
+.whatsapp-box{
+  margin: 28px auto 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapp-btn{
+  background: #25d366;
+  color: #000;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 16px 44px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-family: "Inter", system-ui, sans-serif;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.whatsapp-btn:hover:not(:disabled){
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-btn:disabled{
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================
+   BOTÓN VOLVER
+   ========================= */
+
+.volver-box{
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: flex-start;
+  justify-content: center;
+}
+
+.volver-btn{
+  background: rgba(0,0,0,0.35);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Inter", system-ui, sans-serif;
+  backdrop-filter: blur(10px);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.volver-btn:hover{
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-2px);
+}
