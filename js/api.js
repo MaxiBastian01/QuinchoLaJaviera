@@ -4,7 +4,7 @@
 // ==========================
 
 // 👇 Pegá acá tu URL /exec del Apps Script
-export const OCCUPIED_API_URL = "https://script.google.com/macros/s/AKfycbzEHeVs2O1iLgS9OyepLPfs0yQAjFfJGwbAZrvjTeKK-9TT2KRZvd6hw4yUJO_O2nVT/exec";
+export const OCCUPIED_API_URL = "https://script.google.com/macros/s/AKfycbzi1H___5DCypbx1HSMsicbQxG6nSxysKHfUU8IEWMxHz2zYeWMWsf19-3pomoAi68p/exec";
 
 /**
  * Devuelve un Set con fechas ocupadas en formato YYYY-MM-DD
@@ -29,3 +29,5 @@ export async function fetchOccupiedDatesSet() {
     return new Set(); // si falla, no bloquea nada
   }
 }
+
+//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

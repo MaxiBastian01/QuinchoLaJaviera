@@ -1,5 +1,5 @@
 
-import { fetchOccupiedDatesSet } from "./API.js";
+import { fetchOccupiedDatesSet } from "./api.js";
 
 let occupiedSet = new Set();
 
