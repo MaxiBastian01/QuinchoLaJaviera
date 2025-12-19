@@ -44,11 +44,10 @@ let occupiedSet = new Set();
     }
 
     (async () => {
-        occupiedSet = await fetchOccupiedDatesSet();
-        console.log("OCUPADAS:", [...occupiedSet]);
-
-        render();
-    })();
+  occupiedSet = await fetchOccupiedDatesSet();
+  console.log("OCUPADAS:", [...occupiedSet]);
+  render(); // 👈 MUY IMPORTANTE
+})();
     function render() {
         grid.innerHTML = "";
 
@@ -114,8 +113,6 @@ let occupiedSet = new Set();
         view.setDate(1);
         render();
     });
-
-    render();
 })();
 
 
