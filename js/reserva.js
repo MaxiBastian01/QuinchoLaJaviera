@@ -158,7 +158,7 @@ setInterval(syncFechaResumen, 300);
 // ====== BOTÓN WHATSAPP ======
 const btnWhatsapp = document.getElementById("btnWhatsapp");
 
-// ⚠️ Cambiá por tu número real (con 54 y sin +)
+//  número real
 const WHATSAPP_NUMBER = "5493442486540";
 
 function actualizarBotonWhatsapp() {
@@ -179,7 +179,7 @@ btnWhatsapp.addEventListener("click", () => {
     const horario = horarioSeleccionado.textContent;
     const consultaInput = document.getElementById("consultaTexto");
 
-    // 🔹 Tomar consulta (opcional)
+    //  Tomar consulta (opcional)
     let consulta = consultaInput.value.trim();
     if (!consulta) {
         consulta = "Ninguna.";
@@ -211,4 +211,11 @@ const btnVolver = document.getElementById("btnVolver");
 
 btnVolver.addEventListener("click", () => {
     window.location.href = "index.html"; // o la página que quieras
+});
+
+// ====== BOTÓN VOLVER TOPBAR======
+const btnTopVolver = document.getElementById("topVolver");
+
+btnTopVolver.addEventListener("click", () => {
+    window.history.back();
 });

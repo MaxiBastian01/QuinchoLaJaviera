@@ -3,7 +3,6 @@
 // API: Fechas ocupadas (Google Sheets vía Apps Script)
 // ==========================
 
-// 👇 Pegá acá tu URL /exec del Apps Script
 export const OCCUPIED_API_URL = "https://script.google.com/macros/s/AKfycbzi1H___5DCypbx1HSMsicbQxG6nSxysKHfUU8IEWMxHz2zYeWMWsf19-3pomoAi68p/exec";
 
 /**
@@ -30,4 +29,3 @@ export async function fetchOccupiedDatesSet() {
   }
 }
 
-//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

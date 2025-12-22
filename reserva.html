@@ -12,6 +12,26 @@
 </head>
 
 <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="topbar-content">
+
+            <!-- Ubicación -->
+            <a href="https://www.google.com/maps/place/Quincho+-LA+JAVIERA/" target="_blank" class="topbar-item link">
+                Ubicación
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/5493442486540" target="_blank" class="topbar-item link">
+                WhatsApp
+            </a>
+            <!-- Volver -->
+            <button class="topbar-item back-btn" id="topVolver">
+                ← Volver
+            </button>
+
+        </div>
+    </div>
     <!-- -->
     <header class="reserva-header">
         <div class="overlay">
@@ -58,6 +78,11 @@
                 <!-- PASO 1: Calendario -->
                 <h2 class="cal-title">Seleccioná una fecha</h2>
 
+                <!-- Leyenda -->
+                <p class="cal-legend">
+                    Fechas en rojo ocupadas
+                </p>
+
                 <div class="calendar">
                     <div class="cal-head">
                         <button class="cal-btn" id="prevMonth" aria-label="Mes anterior">‹</button>
@@ -80,12 +105,17 @@
 
                 <div class="fecha-box" id="fechaBox">
                     <span class="fecha-label">Fecha seleccionada:</span>
+
                     <span class="fecha-value" id="fechaSeleccionada">—</span>
                 </div>
 
                 <!-- PASO 2: HORARIO -->
                 <section class="horario-box">
-                    <h2 class="horario-title">2) Indicá horario</h2>
+                    <h2 class="horario-title"> Indicá horario</h2>
+
+                    <p class="horario-legend">
+                        Horario permitido: de 10:00 a 00:00 hs
+                    </p>
 
                     <div class="horario-grid">
                         <label class="horario-field">
@@ -143,4 +173,5 @@
     </header>
     <script type="module" src="js/reserva.js"></script>
 </body>
+
 </html>
