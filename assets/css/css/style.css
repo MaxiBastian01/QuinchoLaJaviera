@@ -670,3 +670,55 @@ body {
     padding: 10px 14px;
   }
 }
+
+
+
+/* =========================
+   fix carrusel
+   ========================= */
+.carousel{
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel .viewport{
+  overflow: hidden;
+  width: 100%;
+  border-radius: 16px; /* opcional */
+}
+
+/* Botones SIEMPRE dentro del contenedor */
+.carousel .nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  z-index: 5;
+
+  /* importante para que no se vaya afuera */
+  box-sizing: border-box;
+}
+
+/* margen interno para que no queden pegados al borde */
+.carousel .nav.prev{ left: 10px; }
+.carousel .nav.next{ right: 10px; }
+
+/* En pantallas chicas, un poquito más chico */
+@media (max-width: 480px){
+  .carousel .nav{
+    width: 40px;
+    height: 40px;
+  }
+  .carousel .nav.prev{ left: 8px; }
+  .carousel .nav.next{ right: 8px; }
+}
+
+.carousel .viewport{
+  touch-action: pan-y; /* permite scroll vertical normal, pero deja swipes horizontales */
+}
