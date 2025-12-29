@@ -775,3 +775,48 @@ body {
     white-space: nowrap;
   }
 }
+
+/* =========================
+   PASOS - FIX MOBILE HORIZONTAL
+   ========================= */
+@media (max-width: 600px){
+
+  .pasos{
+    display: flex !important;
+    flex-direction: row !important;   /* 👈 CLAVE */
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .paso{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .paso .num{
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .paso p{
+    font-size: 11px;
+    line-height: 1.1;
+    margin: 0;
+    max-width: 90px;
+  }
+
+  .flecha{
+    display: inline-block;   /* aseguramos que exista */
+    font-size: 14px;
+    opacity: 0.6;
+  }
+}
+@media (max-width: 600px){
+  .flecha{ display: none; }
+}
