@@ -36,4 +36,51 @@ if (track && prevBtn && nextBtn && dotsWrap) {
     if (e.key === "ArrowLeft") goTo(index - 1);
     if (e.key === "ArrowRight") goTo(index + 1);
   });
+
+
+   // Swipe robusto (Pointer Events) - funciona en la mayoría de celulares
+  const viewport = track.closest(".viewport") || track;
+
+  let xStart = null;
+  let yStart = null;
+
+  viewport.style.touchAction = "pan-y"; // deja scroll vertical, permite gesto horizontal
+
+  viewport.addEventListener("pointerdown", (e) => {
+    // Solo dedo o mouse principal
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+
+    xStart = e.clientX;
+    yStart = e.clientY;
+
+    // Captura el puntero para que no se “pierda” si el dedo se mueve
+    viewport.setPointerCapture(e.pointerId);
+  });
+
+  viewport.addEventListener("pointerup", (e) => {
+    if (xStart === null || yStart === null) return;
+
+    const dx = e.clientX - xStart;
+    const dy = e.clientY - yStart;
+
+    // Si fue más vertical, era scroll
+    if (Math.abs(dy) > Math.abs(dx)) {
+      xStart = yStart = null;
+      return;
+    }
+
+    const TH = 30; // más sensible que 50
+
+    if (dx > TH) goTo(index - 1);
+    else if (dx < -TH) goTo(index + 1);
+
+    xStart = yStart = null;
+  });
+
+  viewport.addEventListener("pointercancel", () => {
+    xStart = yStart = null;
+  });
+
 }
+
+
