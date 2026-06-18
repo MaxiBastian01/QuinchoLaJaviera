@@ -37,7 +37,7 @@ El administrador gestiona la disponibilidad y la información del sistema direct
 
 ### Diagrama de Arquitectura
 
-![Arquitectura del Sistema](docs/arquitectura.png)
+![Arquitectura del Sistema](docs/Arquitectura.png)
 
 ---
 
@@ -95,6 +95,12 @@ La información de disponibilidad se almacena en Google Sheets.
 Google Apps Script actúa como capa de acceso a datos, obteniendo la información de la hoja de cálculo y exponiéndola mediante una API REST.
 
 ---
+
+## Arquitectura
+
+## Sistema de Reservas
+
+![Sistema de Reservas](docs/SistemaDeReservas.png)
 
 ## 👨‍💻 Autor
 
