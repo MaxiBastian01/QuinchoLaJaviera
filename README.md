@@ -4,6 +4,8 @@ Aplicación web para la consulta y gestión de disponibilidad de fechas del Quin
 
 Permite a los clientes visualizar fechas disponibles y consultar información del establecimiento mediante una interfaz web simple y accesible.
 
+Instagram: @quincho_lajaviera
+
 ---
 
 ## 🚀 Tecnologías Utilizadas
