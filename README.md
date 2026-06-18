@@ -101,6 +101,7 @@ Google Apps Script actúa como capa de acceso a datos, obteniendo la informació
 ## Sistema de Reservas
 
 ![Sistema de Reservas](docs/SistemaDeReservas.png)
+![Sistema de Reservas](docs/SistemaDeReservas2.png)
 
 ## 👨‍💻 Autor
 
