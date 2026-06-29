@@ -103,8 +103,5 @@ Google Apps Script actúa como capa de acceso a datos, obteniendo la informació
 ![Sistema de Reservas](docs/SistemaDeReservas.png)
 ![Sistema de Reservas](docs/SistemaDeReservas2.png)
 
-## 👨‍💻 Autor
-
-Máximo Bastián
 
 Proyecto desarrollado como solución web para la gestión de disponibilidad del Quincho La Javiera.
